@@ -15,23 +15,14 @@
 
 
     /**
-     * 组件
-     * 声明式渲染语法
-     *
-     *
-     * react
-     *      直接
-     * vue
-     *      方便 - 语法糖，隐藏了很多的细节
+     * el
+     *  不能把 body 和 html 元素作为挂载点
+     * template
+     *  每一个组件的根元素有且只能有一个
      */
-
     let app = new Vue({
         el: '#app',
-        template: `
-            <div z="1">
-                11111
-            </div>
-        `
+        template: `<div>111111</div><div>vue</div>`
     });
 
 
