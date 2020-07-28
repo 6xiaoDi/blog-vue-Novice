@@ -23,15 +23,17 @@
 
 <script src="./js/vue.js"></script>
 <script>
-    function fn() {
-        console.log(1);
-    }
-    let v2 = 100;
 
     let app = new Vue({
         el: '#app',
         data: {
-            v1: 1
+            v1: 1,
+            v2: 1
+        },
+        methods: {
+            fn(e) {
+                this.v2++;
+            },
         }
     });
 </script>
