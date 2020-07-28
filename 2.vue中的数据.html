@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!--  {{表达式}}自动绑定到vue实例当中  -->
+    {{title}}
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: 'GitHub',
+        }
+    });
+
+    console.log(app);
+
+
+</script>
+
+</body>
+</html>
