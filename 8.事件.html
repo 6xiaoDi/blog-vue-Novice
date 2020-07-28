@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        .checked {
+            background: red;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -20,7 +24,7 @@
 
     <hr>
     <ul>
-        <li v-for="user in users" :style="{color: user.checked ? 'red':''}">{{user.username}}</li>
+        <li v-for="user in users" :class="{'checked': user.checked}">{{user.username}}</li>
     </ul>
 
 </div>
