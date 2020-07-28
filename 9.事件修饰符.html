@@ -8,9 +8,9 @@
 
 <div id="app">
     <div style="padding: 50px; background: red" @click="fn1">
-        <button @click="fn2">按钮</button>
+        <!--        <button @click="fn2">按钮</button>-->
+        <button @click.stop="fn2">按钮</button>
     </div>
-
 </div>
 
 <script src="./js/vue.js"></script>
@@ -25,11 +25,12 @@
         methods: {
 
             fn1() {
-                console.log('1111')
+                console.log('1111');
             },
 
             fn2(e) {
-                console.log('2222')
+                console.log('2222');
+                // e.stopPropagation();
             }
         }
     });
