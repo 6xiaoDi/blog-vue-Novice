@@ -18,6 +18,8 @@
     <p v-text="title">hello，</p>
     <hr>
     <p v-cloak>{{title}}</p>
+    <hr>
+    <p>{{content}}}</p>
 
 </div>
 
@@ -30,13 +32,14 @@
         // el: '#app',
         data: {
             title: '111-222',
-            arr: ['a', 'b']
+            arr: ['a', 'b'],
+            content: '<h1>Github</h1>',    //xss
         }
     });
 
     setTimeout(() => {
         app.$mount('#app')
-    }, 9000);
+    }, 1);
 
 
 </script>
