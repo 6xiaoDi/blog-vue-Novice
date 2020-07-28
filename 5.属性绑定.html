@@ -8,10 +8,12 @@
 
 <div id="app">
     <!--  id属性与表达式挂钩 -->
-<!--    <div v-bind:id="val"></div>-->
+    <div v-bind:id="val"></div>
 <!--    <div id="1+1"></div>-->
-    <div v-bind:id="1+1"></div>
+<!--    <div v-bind:id="1+1"></div>-->
+    <div :id="val"></div>
 
+    <div :style="style1"></div>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -22,7 +24,12 @@
     let app = new Vue({
         el: '#app',
         data: {
-            val: 'github'
+            val: 'github',
+            style1: {
+                width: '100px',
+                height: '100px',
+                background: 'green'
+            }
         }
     });
 
