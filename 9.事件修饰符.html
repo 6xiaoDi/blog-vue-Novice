@@ -7,13 +7,12 @@
 <body>
 
 <div id="app">
-    <div style="padding: 50px; background: red" @click="fn1" @contextmenu.prevent>
-        <button @click.stop="fn2">按钮</button>
+    <div style="padding: 50px; background: red" @click.self="fn1" @contextmenu.prevent>
+        <button @click="fn2">按钮</button>
         <button>111</button>
         <button>222</button>
         <button>333</button>
     </div>
-
 </div>
 
 <script src="./js/vue.js"></script>
