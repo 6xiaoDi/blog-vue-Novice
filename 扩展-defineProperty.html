@@ -14,6 +14,7 @@
         gender: '男'
     };
 
+    let arr = ['a', 'b'];
 
     for (let k in data) {
         if (data.hasOwnProperty(k)) {
@@ -21,6 +22,11 @@
         }
     }
 
+    for (let k in arr) {
+        if (arr.hasOwnProperty(k)) {
+            dp(arr, k);
+        }
+    }
 
     function dp(obj, key) {
         Object.defineProperty( obj, key, {
