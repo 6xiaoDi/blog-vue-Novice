@@ -12,6 +12,8 @@
     <h1>hello，{{title}}</h1>
     <hr>
     <p v-text="title">hello，</p>
+    <hr>
+    <p v-cloak>{{title}}</p>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -29,7 +31,7 @@
 
     setTimeout(() => {
         app.$mount('#app')
-    }, 5000);
+    }, 9000);
 
 
 </script>
