@@ -16,6 +16,12 @@
 
     let arr = ['a', 'b'];
 
+    Array.prototype.push = function(val) {
+        let k = this.length;
+        dp(this, k);
+        arr[k] = val;
+    };
+
     for (let k in data) {
         if (data.hasOwnProperty(k)) {
             dp(data, k);
