@@ -37,6 +37,10 @@
         <button>111</button>
         <span>请登录</span>
     </template>
+    <hr>
+    <div v-for="(val, key, index) in user">
+        {{val}} - {{key}} - {{index}}
+    </div>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -50,6 +54,10 @@
             title: '111-222',
             arr: ['a', 'b'],
             content: '<h1>Github</h1>',    //xss
+            user: {
+                username: 'xiaoming',
+                age: 20
+            },
             isShow: true,
             isLogin: true
         }
