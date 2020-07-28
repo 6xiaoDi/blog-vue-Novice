@@ -24,7 +24,14 @@
 
     <hr>
     <ul>
-        <li v-for="user in users" :class="{'checked': user.checked}">{{user.username}}</li>
+        <li
+                v-for="user in users"
+                :class="{'checked': user.checked}"
+                @click="doCheck(user, $event)"
+        >
+            <!--  注意调用事件函数，事件对象需要手动传，并且$event是固定写法    -->
+            {{user.username}}
+        </li>
     </ul>
 
 </div>
@@ -48,6 +55,10 @@
                 this.v2++;
                 console.log(e);
             },
+            doCheck(user, e) {
+                console.log(e)
+                user.checked = !user.checked;
+            }
         }
     });
 </script>
