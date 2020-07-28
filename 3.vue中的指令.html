@@ -23,6 +23,8 @@
     <p v-html="content"></p>
     <hr>
     <p v-pre>{{title}}</p>
+    <hr>
+    <p v-show="isShow">{{title}}</p>
 
 </div>
 
@@ -37,6 +39,7 @@
             title: '111-222',
             arr: ['a', 'b'],
             content: '<h1>Github</h1>',    //xss
+            isShow: true
         }
     });
 
