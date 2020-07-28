@@ -14,14 +14,24 @@
         gender: '男'
     };
 
-    Object.defineProperty( data, 'username', {
-        get() {
 
-        },
-        set() {
-            console.log('被修改了，开始更新视图');
+    for (let k in data) {
+        if (data.hasOwnProperty(k)) {
+            dp(data, k);
         }
-    } );
+    }
+
+
+    function dp(obj, key) {
+        Object.defineProperty( obj, key, {
+            get() {
+
+            },
+            set() {
+                console.log('被修改了，开始更新视图');
+            }
+        } );
+    }
 </script>
 
 </body>
