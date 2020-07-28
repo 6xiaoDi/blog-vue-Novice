@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <div style="padding: 50px; background: red" @click="fn1">
+        <button @click="fn2">按钮</button>
+    </div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+        },
+        methods: {
+
+            fn1() {
+                console.log('1111')
+            },
+
+            fn2(e) {
+                console.log('2222')
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
