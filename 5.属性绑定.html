@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!--  id属性与表达式挂钩 -->
+<!--    <div v-bind:id="val"></div>-->
+<!--    <div id="1+1"></div>-->
+    <div v-bind:id="1+1"></div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            val: 'github'
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
