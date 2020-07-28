@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    let data = {
+        username: '小明',
+        gender: '男'
+    };
+
+    Object.defineProperty( data, 'username', {
+        get() {
+
+        },
+        set() {
+            console.log('被修改了，开始更新视图');
+        }
+    } );
+</script>
+
+</body>
+</html>
