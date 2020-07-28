@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    <div style="padding: 50px; background: red" @click="fn1">
+<!--    <div style="padding: 50px; background: red" @click="fn1">-->
+    <div style="padding: 50px; background: red" @click="fn1" @contextmenu.prevent>
         <!--        <button @click="fn2">按钮</button>-->
         <button @click.stop="fn2">按钮</button>
     </div>
