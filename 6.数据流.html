@@ -9,22 +9,31 @@
 <div id="app">
     <!--    <input type="text" :value="n1" >-->
     <!--  绑定事件：changeN1  -->
-    <input type="text" :value="n1" @change="changeN1">
+    <!--    <input type="text" :value="n1" @change="changeN1">-->
+
+    <input type="text" v-model="n1" />
+
 </div>
 
 <script src="./js/vue.js"></script>
 <script>
+
+
+
     let app = new Vue({
         el: '#app',
         data: {
             n1: 1
         },
         methods: {
-            changeN1(e) {
-                this.n1 = e.target.value;
-            }
+            // changeN1(e) {
+            //     this.n1 = e.target.value;
+            // }
         }
     });
+
+
+
 </script>
 
 </body>
