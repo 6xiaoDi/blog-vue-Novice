@@ -13,10 +13,19 @@
     <!--  @click="..." 里不要写if,它不支持  -->
     <button @click="v1++">按钮</button>
     {{v1}}
+
+    <hr>
+    <button @click="fn">按钮</button>
+    {{v2}}
+
 </div>
 
 <script src="./js/vue.js"></script>
 <script>
+    function fn() {
+        console.log(1);
+    }
+    let v2 = 100;
 
     let app = new Vue({
         el: '#app',
