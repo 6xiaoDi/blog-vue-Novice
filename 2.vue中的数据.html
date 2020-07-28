@@ -8,7 +8,7 @@
 
 <div id="app">
     <!--  {{表达式}}自动绑定到vue实例当中  -->
-    {{title}}
+    {{_title}}
 </div>
 
 <script src="./js/vue.js"></script>
@@ -19,12 +19,15 @@
     let app = new Vue({
         el: '#app',
         data: {
-            title: 'GitHub',
+            _title: 'GitHub'
         }
     });
 
+    /**
+     * 注意
+     *  在 data 中避免（禁止）创建 以 _ 或 $ 开头的数据名称
+     */
     console.log(app);
-
 
 </script>
 
