@@ -8,9 +8,16 @@
 
 <div id="app">
 <!--    <input type="text" v-model="n1" />-->
+<!--    <input type="text" v-model.lazy="n1" />-->
+<!--    <hr>-->
+<!--    {{n1}}-->
+
     <input type="text" v-model.lazy="n1" />
-    <hr>
-    {{n1}}
+    +
+    <input type="text" v-model.lazy="n2" />
+    =
+    {{n1+n2}}
+
 </div>
 
 <script src="./js/vue.js"></script>
@@ -21,7 +28,8 @@
     let app = new Vue({
         el: '#app',
         data: {
-            n1: 1
+            n1: 0,
+            n2: 0
         }
     });
 
