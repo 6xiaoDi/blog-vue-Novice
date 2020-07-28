@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <!--  @click="..." 里不要写if,它不支持  -->
+    <button @click="v1++">按钮</button>
+    {{v1}}
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            v1: 1
+        }
+    });
+</script>
+
+</body>
+</html>
