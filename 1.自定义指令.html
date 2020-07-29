@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    <input type="text" autofocus />
+<!--  ref的值随便取，其实就相当于id   -->
+    <input ref="input1" type="text" autofocus />
     <button @click="setFocus">设置焦点</button>
 
 </div>
@@ -19,9 +20,8 @@
         el: '#app',
         methods: {
             setFocus() {
-                let input = document.querySelector('input');
-                console.log(input);
-                input.focus();
+                console.log(this.$refs)
+                this.$refs.input1.focus();
             }
         }
     });
