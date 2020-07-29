@@ -8,27 +8,35 @@
 
 <div id="app">
     <new-component></new-component>
+
+    <new-component1></new-component1>
 </div>
 
 <script src="./js/vue.js"></script>
 
 <script>
 
-    // 全局组件 - 组件工厂函数
     let newComponent = Vue.component('new-component', {
-
         template: `
                 <div>
                     Github
                 </div>
-            `
+            `,
+
+        components: {
+            'new-component1': {
+                template: `<div>1111</div>`
+            },
+            'new-component2': {
+                template: `<div>2222</div>`
+            }
+        }
+
     });
 
     let app = new Vue({
         el: '#app'
     });
-
-    console.log(app, newComponent);
 
 </script>
 </body>
