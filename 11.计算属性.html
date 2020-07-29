@@ -62,6 +62,15 @@
             checkedAll: {
                 get() {
                     return this.users.every( user => user.checked );
+                },
+                set(newVal) {
+                    console.log(newVal);
+                    this.users = this.users.map( user => {
+                        return {
+                            ...user, // 解构
+                            checked: newVal
+                        }
+                    } );
                 }
             }
         },
