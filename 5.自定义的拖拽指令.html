@@ -30,12 +30,14 @@
         bind(el, {value: isDrag}) {
 
             let isDown = false;
+            el._isDrag = isDrag;
             let _x = 0;
             let _y = 0;
             el.addEventListener('mousedown', function(e) {
-                console.log(isDrag)
+                // console.log('downdowndown')
+                console.log(el._isDrag)
 
-                if (!isDrag) {
+                if (!el._isDrag) {
                     return;
                 }
 
@@ -59,6 +61,11 @@
                 isDown = false;
             });
 
+        },
+
+        update(el, {value: isDrag}) {
+            el._isDrag = isDrag;
+            console.log(el._isDrag)
         }
     });
 
