@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    let Vue = {};
+
+    class VueComponent {
+        constructor(options) {
+            this._opts = options;
+
+            this._data = this._opts.data;
+        }
+    }
+
+    let newComponent1 = new VueComponent({
+        name: 'new-component1',
+        data: {
+            a: 1
+        }
+    });
+
+    let newComponent2 = new VueComponent({
+        name: 'new-component2',
+        data: {
+            a: 1
+        }
+    });
+
+    // newComponent1._data 与 newComponent2._data 是否是同一个对象？
+    console.log(newComponent1, newComponent2);
+    newComponent2._data.a = 100;
+    console.log(newComponent1, newComponent2);
+</script>
+
+</body>
+</html>
