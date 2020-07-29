@@ -13,20 +13,22 @@
 <script src="./js/vue.js"></script>
 
 <script>
-    Vue.component('new-component', {
+
+    // 全局组件 - 组件工厂函数
+    let newComponent = Vue.component('new-component', {
+
         template: `
                 <div>
                     Github
                 </div>
-                <div>
-                    Github
-                </div>
-            `,
+            `
     });
 
     let app = new Vue({
         el: '#app'
     });
+
+    console.log(app, newComponent);
 
 </script>
 </body>
