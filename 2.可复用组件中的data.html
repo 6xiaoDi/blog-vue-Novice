@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <p>app组件：{{a}}</p>
+
+    <new-component></new-component>
+</div>
+
+<script src="./js/vue.js"></script>
+
+<script>
+
+    let newComponent = Vue.component('new-component', {
+        template: `
+                <div>
+                    aaaaa - {{a}}
+                </div>
+            `
+
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            a: 1
+        }
+    });
+
+    console.log(app, newComponent);
+
+</script>
+</body>
+</html>
