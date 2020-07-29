@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <input type="text" v-model="keyWord">
+    <hr>
+    <ul>
+        <li v-for="user of showUsers">
+            {{user.username}}
+        </li>
+    </ul>
+
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            keyWord: '',
+            users: [
+                {id: 1, username: 'zsaa', gender: '男',checked:false},
+                {id: 2, username: 'lsdsad', gender: '男',checked:false},
+                {id: 3, username: 'wwdsad', gender: '男',checked:false},
+                {id: 4, username: 'xmdsadsa', gender: '男',checked:false},
+                {id: 5, username: 'xhdasdasdasdas', gender: '女',checked:false},
+                {id: 6, username: 'xlzxczxczx', gender: '女',checked:false}
+            ]
+        },
+        computed: {
+            showUsers() {
+                // setTimeout(_ => {
+                //     // 明显不可行，return返回给的是返回定时器，如果返回定时器，则返回的是定时器的编号也不行
+                //     if (this.keyWord !== '') {
+                //         return this.users.filter( user => user.username.includes(this.keyWord) );
+                //     }
+                //     return [];
+                // }, 1000);
+                // 计算属性不支持 promise 任务，不支持异步任务的处理
+                return new Promise(resolve => {
+                    setTimeout(_ => {
+                        if (this.keyWord !== '') {
+                            resolve(this.users.filter( user => user.username.includes(this.keyWord) ));
+                        }
+                        resolve([]);
+                    }, 1000);
+                })
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
