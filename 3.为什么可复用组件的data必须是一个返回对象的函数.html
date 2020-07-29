@@ -23,7 +23,8 @@
         return function() {
             return new VueComponent({
                 name,
-                ...options
+                ...options,
+                data: options.data()  // options.data()函数返回的对象赋值给data，成为一个新对象
             });
         }
     };
