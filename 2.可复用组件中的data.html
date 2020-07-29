@@ -18,9 +18,13 @@
 <script>
 
     let newComponent = Vue.component('new-component', {
+        data: {
+            b: 100
+        },
+
         template: `
                 <div>
-                    aaaaa - {{a}}
+                    aaaaa - {{b}}
                 </div>
             `
 
