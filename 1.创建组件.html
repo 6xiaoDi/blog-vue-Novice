@@ -8,8 +8,6 @@
 
 <div id="app">
     <new-component></new-component>
-
-    <new-component1></new-component1>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -18,10 +16,13 @@
 
     let newComponent = Vue.component('new-component', {
         template: `
-                <div>
-                    Github
-                </div>
-            `,
+            <div>
+                Github
+                <hr />
+                <new-component1></new-component1>
+                <new-component2></new-component2>
+            </div>
+        `,
 
         components: {
             'new-component1': {
