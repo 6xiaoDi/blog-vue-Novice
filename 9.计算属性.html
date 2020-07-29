@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="changeGender('')">所有</button>
+    <button @click="changeGender('男')">男</button>
+    <button @click="changeGender('女')">女</button>
+
+    <hr>
+
+    <ul>
+        <li v-for="user of showUsers">
+            {{user.username}}
+        </li>
+    </ul>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    let users = [
+        {id: 1, username: 'zs', gender: '男'},
+        {id: 2, username: 'ls', gender: '男'},
+        {id: 3, username: 'xm', gender: '男'},
+        {id: 4, username: 'ww', gender: '男'},
+        {id: 5, username: 'xh', gender: '女'},
+        {id: 6, username: 'xl', gender: '女'}
+    ];
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // 过滤条件
+            gender: '',
+            // 原始数据
+            users,
+            // 派生数据
+            // showUsers: users
+        },
+        computed: {
+            // 类似是一个对象（包含getter、setter对象<get、set>）
+            // 派生数据
+            showUsers: {
+                get() {
+                    console.log('...');
+                    // showUsers根据过滤条件得到，this.users数据变化都会导致showUsers变化
+                    if (this.gender === '') {
+                        return this.users;
+                    }
+                    return this.users.filter( user => user.gender === this.gender );
+                }
+            }
+        },
+        methods: {
+            changeGender(gender) {
+                this.gender = gender;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
