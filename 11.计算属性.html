@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="changeGender('')">所有</button>
+    <button @click="changeGender('男')">男</button>
+    <button @click="changeGender('女')">女</button>
+
+    <hr>
+
+    <ul>
+        <li v-for="user of showUsers">
+            <input type="checkbox" v-model="user.checked" />
+            {{user.username}}
+        </li>
+    </ul>
+
+    <hr>
+    <input type="checkbox" v-model="checkedAll" /> 全选
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let users = [
+        {id: 1, username: 'xm', gender: '男', checked: false},
+        {id: 2, username: 'zs', gender: '男', checked: false},
+        {id: 3, username: 'ls', gender: '男', checked: false},
+        {id: 4, username: 'ww', gender: '男', checked: false},
+        {id: 5, username: 'xh', gender: '女', checked: false},
+        {id: 6, username: 'mm', gender: '女', checked: false}
+    ];
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // 过滤
+            gender: '',
+            // 原始数据
+            users,
+            // 派生数据
+            // checkedAll: false
+        },
+        computed: {
+            // 类似是一个对象（getter、setter）
+            showUsers: {
+                get() {
+                    // console.log('...');
+                    if (this.gender === '') {
+                        return this.users;
+                    }
+                    return this.users.filter( user => user.gender === this.gender );
+                }
+            },
+            // 该数据是根据原先数据派生得到的，因此马上使用计算属性
+            checkedAll: {
+                get() {
+                    return this.users.every( user => user.checked );
+                }
+            }
+        },
+        methods: {
+            changeGender(gender) {
+                this.gender = gender;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
