@@ -20,8 +20,20 @@
         bind(el, binding) {
             console.log('....');
         },
-        inserted(el, binding) {
-            console.log(binding);
+        // {value}解构binding中的value属性
+        inserted(el, {value}) {
+            // value : 存储的是 指令的值（作为表达式解析过后的）
+            // expression : 表达式原始内容
+            // console.log(binding);
+            if (value) {
+                el.focus();
+            }
+        },
+        componentUpdated(el, {value}) {
+            //     console.log(binding);
+            if (value) {
+                el.focus();
+            }
         }
     });
 
@@ -32,6 +44,7 @@
         },
         methods: {
             setFocus() {
+                this.isFocus = true;
             }
         }
     });
