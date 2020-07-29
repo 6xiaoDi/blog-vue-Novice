@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: #e30505;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="isDrag=!isDrag">开启拖拽 - {{isDrag}}</button>
+
+    <div class="box" v-drag="isDrag"></div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    Vue.directive('drag', {
+        bind(el, {value: isDrag}) {
+
+            let isDown = false;
+            let _x = 0;
+            let _y = 0;
+            el.addEventListener('mousedown', function(e) {
+                console.log(isDrag)
+
+                if (!isDrag) {
+                    return;
+                }
+
+                isDown = true;
+                _x = e.clientX - el.offsetLeft;
+                _y = e.clientY - el.offsetTop;
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            el.addEventListener('mousemove', function(e) {
+                if (isDown) {
+
+                    el.style.left = e.clientX - _x + 'px';
+                    el.style.top = e.clientY - _y + 'px';
+                }
+            });
+
+            el.addEventListener('mouseup', function() {
+                isDown = false;
+            });
+
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // 是否允许拖拽
+            isDrag: false
+        }
+    });
+
+</script>
+
+</body>
+</html>
