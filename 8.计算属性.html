@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="changeGender('')">所有</button>
+    <button @click="changeGender('男')">男</button>
+    <button @click="changeGender('女')">女</button>
+
+    <hr>
+
+    <ul>
+        <li v-for="user of showUsers">
+            {{user.username}}
+        </li>
+    </ul>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let users = [
+        {id: 1, username: 'zs', gender: '男'},
+        {id: 2, username: 'ls', gender: '男'},
+        {id: 3, username: 'xm', gender: '男'},
+        {id: 4, username: 'ww', gender: '男'},
+        {id: 5, username: 'xh', gender: '女'},
+        {id: 6, username: 'xl', gender: '女'}
+    ];
+    let app = new Vue({
+        el: '#app',
+        data: {
+            users,
+            showUsers: users
+        },
+        methods: {
+            changeGender(gender) {
+                console.log(gender);
+                if (gender === '') {
+                    this.showUsers = this.users;
+                } else {
+                    this.showUsers = this.users.filter( user => user.gender === gender );
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
