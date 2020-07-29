@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <h1>{{RMB(price)}}</h1>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // 单位：分 （计算机默认）
+            price: 123124
+        },
+        methods: {
+            RMB(price) {
+                return '￥ ' + (price/100).toFixed(2);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
