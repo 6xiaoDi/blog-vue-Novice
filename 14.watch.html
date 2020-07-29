@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <input type="text" v-model="keyWord">
+    <hr>
+    <ul>
+        <li v-for="user of showUsers">
+            {{user.username}}
+        </li>
+    </ul>
+
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            keyWord: '',
+            users: [
+                {id: 1, username: 'zsaa', gender: '男',checked:false},
+                {id: 2, username: 'lsdsad', gender: '男',checked:false},
+                {id: 3, username: 'wwdsad', gender: '男',checked:false},
+                {id: 4, username: 'xmdsadsa', gender: '男',checked:false},
+                {id: 5, username: 'xhdasdasdasdas', gender: '女',checked:false},
+                {id: 6, username: 'xlzxczxczx', gender: '女',checked:false}
+            ],
+            showUsers: []
+        },
+        watch: {
+            // 监听keyWord数据变化，如变化就会执行该函数
+            keyWord() {
+                console.log('....')
+                setTimeout(() => {
+                    if (this.keyWord !== '') {
+                        this.showUsers = this.users.filter( user => user.username.includes(this.keyWord) );
+                    } else {
+                        this.showUsers = [];
+                    }
+
+                    console.log(this.users);
+                }, 1000);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
