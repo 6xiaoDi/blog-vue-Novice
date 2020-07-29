@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="showDate=!showDate">showDate</button>
+    <hr>
+    <p v-if="showDate">{{getNow()}}</p>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            showDate: false  // 控制时间显示与隐藏
+        },
+        computed: {
+            now:{
+                get() {
+                    return Date.now();
+                }
+            }
+        },
+        methods: {
+            getNow() {
+                return Date.now();
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
