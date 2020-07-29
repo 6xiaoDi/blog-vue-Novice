@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <new-component></new-component>
+</div>
+
+<script src="./js/vue.js"></script>
+
+<script>
+    Vue.component('new-component', {
+        //el: ''  // 就是模板中的顶层元素
+        template: `
+                <div>
+                    Github
+                </div>
+            `,
+    });
+
+    let app = new Vue({
+        el: '#app'
+    });
+
+</script>
+</body>
+</html>
