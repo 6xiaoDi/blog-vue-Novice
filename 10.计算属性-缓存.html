@@ -10,7 +10,7 @@
 
     <button @click="showDate=!showDate">showDate</button>
     <hr>
-    <p v-if="showDate">{{getNow()}}</p>
+    <p v-if="showDate">{{now}}</p>
 
 </div>
 
@@ -21,7 +21,7 @@
     let app = new Vue({
         el: '#app',
         data: {
-            showDate: false  // 控制时间显示与隐藏
+            showDate: false
         },
         computed: {
             now:{
