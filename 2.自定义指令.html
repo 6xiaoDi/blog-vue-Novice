@@ -19,10 +19,11 @@
     Vue.directive('focus', {
         bind(el, binding) {
             console.log('bind', el);
-            el.focus();
+            // el.focus();
+            el.value = 'CCCCCCCCCCCCCCCCCCC';
         },
         inserted(el, binding) {
-            console.log('inserted',el);
+            console.log('inserted');
         }
     });
 
