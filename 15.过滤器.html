@@ -9,10 +9,18 @@
 <div id="app">
 
     <h1>{{RMB(price)}}</h1>
+    <hr />
+    <!--  使用管道符（流式）处理  price默认作为第一个参数传给后一个函数-->
+    <h1>{{price|FRMB('$')}}</h1>
+
 </div>
 
 <script src="./js/vue.js"></script>
 <script>
+
+    Vue.filter('FRMB', function(price, flag='￥') {
+        return flag + ' ' + (price/100).toFixed(2);
+    });
 
     let app = new Vue({
         el: '#app',
