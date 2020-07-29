@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <div class="box" v-drag></div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.directive('drag', {
+        bind(el, binding) {
+            // 事件绑定是不需要元素在这个页面存在的，除非触发该事件，元素就必须在页面上了
+            let isDown = false; // 鼠标是否按下
+            let _x = 0;
+            let _y = 0;
+            el.addEventListener('mousedown', function(e) {
+                isDown = true;
+                // 鼠标与元素差值，便于计算拖拽后的位置
+                _x = e.clientX - el.offsetLeft;
+                _y = e.clientY - el.offsetTop;
+
+                e.stopPropagation(); // 阻止冒泡
+                e.preventDefault();  // 阻止默认行为
+            });
+
+            el.addEventListener('mousemove', function(e) {
+                if (isDown) {
+
+                    el.style.left = e.clientX - _x + 'px';
+                    el.style.top = e.clientY - _y + 'px';
+                }
+            });
+
+            el.addEventListener('mouseup', function() {
+                isDown = false;
+            });
+
+        }
+    });
+
+    let app = new Vue({
+        el: '#app'
+    });
+
+</script>
+
+</body>
+</html>
