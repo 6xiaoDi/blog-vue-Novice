@@ -20,20 +20,31 @@
 
     // component 工厂函数，对new的行为进行了包装
     Vue.component = function(name, options) {
-        return new VueComponent({
-            name,
-            ...options
-        });
+        return function() {
+            return new VueComponent({
+                name,
+                ...options
+            });
+        }
     };
 
 
     let newComponent1 = Vue.component('new-component1', {
-        data: {
-            a: 1
+        data() {
+            return {
+                a: 1
+            }
         }
     });
 
-    console.log( newComponent1 )
+    let new1 = newComponent1();
+    let new2 = newComponent1();
+
+    console.log(new1, new2);
+
+    new1._data.a = 100;
+
+    console.log(new1, new2);
 </script>
 
 </body>
