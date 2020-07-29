@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <input type="text" v-focus="isFocus" />
+    <button @click="setFocus">设置焦点</button>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    Vue.directive('focus', {
+        bind(el, binding) {
+            console.log('....');
+        },
+        inserted(el, binding) {
+            console.log(binding);
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            isFocus: false
+        },
+        methods: {
+            setFocus() {
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
