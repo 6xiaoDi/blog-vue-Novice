@@ -20,10 +20,11 @@
         bind(el, binding) {
             console.log('bind', el);
             // el.focus();
-            el.value = 'CCCCCCCCCCCCCCCCCCC';
+            // el.value = 'CCCCCCCCCCCCCCCCCCC';
         },
         inserted(el, binding) {
             console.log('inserted');
+            el.focus();
         }
     });
 
@@ -35,14 +36,6 @@
             }
         }
     });
-
-    window.onload = function() {
-        let input = document.createElement('input');
-        // input.focus();
-        // document.body.appendChild(input);
-        document.body.appendChild(input);
-        input.focus();
-    }
 </script>
 
 </body>
