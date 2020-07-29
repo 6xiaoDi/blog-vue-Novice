@@ -15,7 +15,7 @@
     <hr>
 
     <ul>
-        <li v-for="user of users">
+        <li v-for="user of showUsers">
             {{user.username}}
         </li>
     </ul>
@@ -38,12 +38,17 @@
         el: '#app',
         data: {
             gender: '',
-            users
+            users,  // 原始数据
+            showUsers: users  // 过滤后的显示数据
         },
         methods: {
             changeGender() {
                 console.log(this.gender);
-                this.users = this.users.filter( user => user.gender === this.gender );
+                if (this.gender === '') {
+                    this.showUsers = this.users;
+                } else {
+                    this.showUsers = this.users.filter( user => user.gender === this.gender );
+                }
             }
         }
     });
