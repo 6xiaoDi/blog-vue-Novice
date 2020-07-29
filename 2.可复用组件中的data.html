@@ -18,8 +18,10 @@
 <script>
 
     let newComponent = Vue.component('new-component', {
-        data: {
-            b: 100
+        data() {
+            return {
+                b: 100
+            }
         },
 
         template: `
