@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .box2 {
+            position: absolute;
+            left: 300px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="isDrag=!isDrag">开启拖拽 - {{isDrag}}</button>
+
+    <div class="box" v-drag.limit="isDrag"></div>
+
+    <div class="box2" v-drag="isDrag"></div>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    Vue.directive('drag', {
+        bind(el, {value: isDrag, modifiers}) {
+            console.log(modifiers);
+            console.log(modifiers.limit);
+
+            let isDown = false;
+            el._isDrag = isDrag;
+            el._isLmit = modifiers.limit;
+            let _x = 0;
+            let _y = 0;
+            el.addEventListener('mousedown', function(e) {
+                // console.log('downdowndown')
+                // console.log(el._isDrag)
+
+                if (!el._isDrag) {
+                    return;
+                }
+
+                isDown = true;
+                _x = e.clientX - el.offsetLeft;
+                _y = e.clientY - el.offsetTop;
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            el.addEventListener('mousemove', function(e) {
+                if (isDown) {
+
+                    let L = e.clientX - _x;
+                    let T = e.clientY - _y;
+
+                    if (el._isLmit) {
+                        // 限制左侧
+                        if (L < 0) {
+                            L = 0;
+                        }
+                    }
+
+                    el.style.left = L + 'px';
+                    el.style.top = T + 'px';
+                }
+            });
+
+            el.addEventListener('mouseup', function() {
+                isDown = false;
+            });
+
+        },
+
+        update(el, {value: isDrag}) {
+            el._isDrag = isDrag;
+            // console.log(el._isDrag)
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            isDrag: false
+        }
+    });
+
+</script>
+
+</body>
+</html>
