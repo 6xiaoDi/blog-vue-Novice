@@ -8,6 +8,8 @@
 
 <div id="app">
     <me-list v-for="item of items" :key="item.id" :data="item"></me-list>
+    <hr>
+    总数：{{count}}
 </div>
 
 <script src="./js/vue.js"></script>
@@ -23,7 +25,10 @@
                 <span>{{data.quantity}}</span>
                 <button>+</button>
             </div>
-        `
+        `,
+
+        methods: {
+        }
     });
 
     let app = new Vue({
@@ -35,6 +40,13 @@
                 {id: 2, name: 'imac', quantity: 1},
                 {id: 3, name: 'ipad', quantity: 1}
             ]
+        },
+        computed: {
+            count() {
+                return this.items.reduce( (n, item) => {
+                    return n + item.quantity;
+                }, 0 );
+            }
         }
     });
 
