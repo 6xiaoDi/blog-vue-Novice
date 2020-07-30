@@ -47,8 +47,8 @@
 
 <div id="app">
     <me-dialog :data="datas">
-
-        <template>
+        <!--props包含两个对象:users="data.users" :v="1"-->
+        <template v-slot="props">
             <table width='100%' border='1px'>
                 <thead>
                 <tr>
@@ -83,7 +83,7 @@
                     {{data.title}}
                 </div>
                 <div class="dialog_content">
-                    <slot></slot>
+                    <slot :users="data.users" :v="1"></slot>
                 </div>
             </div>
         `
