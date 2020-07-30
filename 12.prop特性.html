@@ -7,7 +7,7 @@
 <body>
 
 <div id="app">
-    <my-component :n="1" style="color: #00B7FF"></my-component>
+    <my-component :n="1" style="color: #00B7FF" me="zzzz"></my-component>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -22,7 +22,7 @@
                 }
             }
         },
-        template: '<div>{{n + 10}} - {{me}}</div>'
+        template: '<div me="1-2-3">{{n + 10}} - {{me}}</div>'
     };
 
     let app = new Vue({
