@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <my-component :n="1" me="zzzz"></my-component>
+</div>
+
+<script src="./js/vue.js"></script>
+
+<script>
+
+    const myComponent = {
+        props: {
+            n: {
+                validator(val) {
+                    return val >=0 && val <= 100;
+                }
+            }
+        },
+        template: '<div>{{n + 10}} - {{me}}</div>'
+    };
+
+    let app = new Vue({
+        el: '#app',
+        components: {
+            myComponent: myComponent
+        }
+    });
+
+</script>
+</body>
+</html>
