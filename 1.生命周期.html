@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <me-component :t="title"></me-component>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    const meComponent = {
+        props: ['t'],
+        template: `
+                <div>
+                    <h1>meComponent - {{t}}</h1>
+                </div>
+            `,
+
+        beforeCreate() {
+            console.log('meComponent:beforeCreate');
+        },
+
+        // 构建完成以后
+        created() {
+            console.log('meComponent:created');
+        },
+
+        // 组件挂载之前
+        beforeMount() {
+            console.log('meComponent:beforeMount');
+        },
+
+        // 组件挂载完成以后
+        mounted() {
+            console.log('meComponent:mounted');
+        },
+
+        // 组件更新
+        beforeUpdate() {
+            console.log('meComponent:beforeUpdate');
+        },
+
+        // 组件更新后
+        updated() {
+            console.log('meComponent:updated');
+        },
+
+        beforeDestroy() {
+            console.log('meComponent:beforeDestroy');
+        },
+
+        destroyed() {
+            console.log('meComponent:destroyed');
+        }
+    };
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Github',
+            show: true
+        },
+
+        components: {
+            meComponent
+        },
+
+        beforeCreate() {
+            console.log('beforeCreate');
+        },
+
+        // 构建完成以后
+        created() {
+            console.log('created');
+        },
+
+        // 组件挂载之前
+        beforeMount() {
+            console.log('beforeMount');
+        },
+
+        // 组件挂载完成以后
+        mounted() {
+            console.log('mounted');
+        },
+
+        // 组件更新
+        beforeUpdate() {
+            console.log('beforeUpdate');
+        },
+
+        // 组件更新后
+        updated() {
+            console.log('updated');
+        },
+
+        beforeDestroy() {
+            console.log('beforeDestroy');
+        },
+
+        destroyed() {
+            console.log('destroyed');
+        }
+    });
+
+</script>
+
+</body>
+</html>
