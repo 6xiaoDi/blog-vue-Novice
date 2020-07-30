@@ -46,22 +46,23 @@
 <body>
 
 <div id="app">
-    <me-dialog title="标题" content="    <table width='100%' border='1px'>
-        <thead>
+    <me-dialog title="标题">
+        <table width='100%' border='1px'>
+            <thead>
             <tr>
                 <th>id</th>
                 <th>姓名</th>
                 <th>性别</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr>
                 <td>1</td>
                 <td>ls</td>
                 <td>男</td>
             </tr>
-        </tbody>
-    </table>">
+            </tbody>
+        </table>
     </me-dialog>
 </div>
 
@@ -71,15 +72,14 @@
 <script>
 
     const Dialog = {
-        props: ['title', 'content'],
+        props: ['title'],
         template: `
             <div class="dialog">
                 <i class="dialog_close_btn"></i>
                 <div class="dialog_header">
                     <span class="dialog_title">{{title}}</span>
                 </div>
-                <div class="dialog_content" v-html="content">
-                    {{content}}
+                <div class="dialog_content">
                 </div>
             </div>
         `
