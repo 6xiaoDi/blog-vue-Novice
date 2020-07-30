@@ -8,7 +8,7 @@
 
 <div id="app">
 <!--    <my-component n="110"></my-component>-->
-    <my-component :n="110"></my-component>
+    <my-component :n="10"></my-component>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -17,7 +17,11 @@
 
     const myComponent = {
         props: {
-            n: Number
+            n: {
+                validator(val) {
+                    return val >=0 && val <= 100;
+                }
+            }
         },
         template: '<div>{{n + 10}}</div>'
     };
