@@ -36,8 +36,7 @@
         methods: {
             // 加数量
             increment() {
-                // this.fn();
-                console.log(this.fn);
+                this.fn(this.data, this.data.quantity + 1);
             }
         }
     });
@@ -57,9 +56,11 @@
                 return this.items.reduce( (n, item) => {
                     return n + item.quantity;
                 }, 0 );
-            },
+            }
+        },
+        methods: {
             edit(item, quantity) {
-                console.log('fn');
+                item.quantity = quantity;
             }
         }
     });
