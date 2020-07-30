@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <me-list
+            v-for="item of items"
+            :key="item.id"
+            :name="item.name"
+            v-model="item.quantity"
+        >
+        </me-list>
+
+        <hr>
+        总数：{{count}}
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        let meList = Vue.component('me-list', {
+            props: ['name', 'quantity'],
+            // v-model的值 赋值给 prop指定的属性值
+            // event abc 当你触发abc事件，第二个参数值将自动去更新在 v-model当中所绑定的值
+            model: {
+                prop: 'quantity',
+                event: 'abc'
+            },
+            template: `
+                <div>
+                    <span>{{name}}</span>
+
+                    <button>-</button>
+                    <span>{{quantity}}</span>
+                    <button @click="increment">+</button>
+                </div>
+            `,
+
+            methods: {
+                increment() {
+                    this.$emit('abc', this.quantity + 1);
+                }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    {id: 1, name: 'iphonex', quantity: 1},
+                    {id: 2, name: 'imac', quantity: 1},
+                    {id: 3, name: 'ipad', quantity: 1}
+                ]
+            },
+            computed: {
+                count() {
+                    return this.items.reduce( (n, item) => {
+                        return n + item.quantity;
+                    }, 0 );
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>
