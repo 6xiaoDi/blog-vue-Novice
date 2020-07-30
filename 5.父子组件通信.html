@@ -12,6 +12,7 @@
             :key="item.id"
             :data="item"
             :quantity="item.quantity"
+            :fn="edit"
     ></me-list>
     <hr>
     总数：{{count}}
@@ -22,7 +23,7 @@
 <script>
 
     let meList = Vue.component('me-list', {
-        props: ['data', 'quantity'],
+        props: ['data', 'quantity', 'fn'],
         template: `
             <div>
                 <span>{{data.name}}</span>
@@ -35,7 +36,7 @@
         methods: {
             // 加数量
             increment() {
-                this.quantity++;
+                this.fn();
             }
         }
     });
@@ -55,6 +56,9 @@
                 return this.items.reduce( (n, item) => {
                     return n + item.quantity;
                 }, 0 );
+            },
+            edit(item, quantity) {
+                console.log('fn');
             }
         }
     });
