@@ -7,7 +7,12 @@
 <body>
 
 <div id="app">
-    <me-list v-for="item of items" :key="item.id" :data="item"></me-list>
+    <me-list
+            v-for="item of items"
+            :key="item.id"
+            :data="item"
+            :quantity="item.quantity"
+    ></me-list>
     <hr>
     总数：{{count}}
 </div>
@@ -17,12 +22,12 @@
 <script>
 
     let meList = Vue.component('me-list', {
-        props: ['data'],
+        props: ['data', 'quantity'],
         template: `
             <div>
                 <span>{{data.name}}</span>
                 <button>-</button>
-                <span>{{data.quantity}}</span>
+                <span>{{quantity}}</span>
                 <button @click="increment">+</button>
             </div>
         `,
@@ -30,7 +35,7 @@
         methods: {
             // 加数量
             increment() {
-                this.data.quantity++;
+                this.quantity++;
             }
         }
     });
