@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <me-circle :r="n1"></me-circle>
+        <hr />
+        <me-circle :r="n2"></me-circle>
+    </div>
+
+    <script src="./js/vue.js"></script>
+
+    <script>
+
+        let meCircle = Vue.component('me-circle', {
+
+            props: ['r'],
+            template: `<div>r: {{r}} -> {{3.14 * r * r}}</div>`
+
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                n1: 10,
+                n2: 100
+            }
+        });
+
+
+    </script>
+</body>
+</html>
