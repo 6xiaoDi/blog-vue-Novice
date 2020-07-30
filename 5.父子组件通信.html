@@ -23,11 +23,15 @@
                 <span>{{data.name}}</span>
                 <button>-</button>
                 <span>{{data.quantity}}</span>
-                <button>+</button>
+                <button @click="increment">+</button>
             </div>
         `,
 
         methods: {
+            // 加数量
+            increment() {
+                this.data.quantity++;
+            }
         }
     });
 
