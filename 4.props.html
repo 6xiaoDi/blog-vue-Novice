@@ -19,6 +19,11 @@
         let meCircle = Vue.component('me-circle', {
 
             props: ['r'],
+            data() {
+                return {
+                    r: 1
+                }
+            },
             template: `<div>r: {{r}} -> {{3.14 * r * r}}</div>`
 
         });
