@@ -46,9 +46,25 @@
 <body>
 
 <div id="app">
-    <me-dialog title="标题" content="内容">
+    <me-dialog title="标题" content="    <table width='100%' border='1px'>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ls</td>
+                <td>男</td>
+            </tr>
+        </tbody>
+    </table>">
     </me-dialog>
 </div>
+
 
 <script src="./js/vue.js"></script>
 
@@ -62,7 +78,7 @@
                 <div class="dialog_header">
                     <span class="dialog_title">{{title}}</span>
                 </div>
-                <div class="dialog_content">
+                <div class="dialog_content" v-html="content">
                     {{content}}
                 </div>
             </div>
