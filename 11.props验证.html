@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    <my-component n="110"></my-component>-->
+    <my-component :n="110"></my-component>
+</div>
+
+<script src="./js/vue.js"></script>
+
+<script>
+
+    const myComponent = {
+        props: {
+            n: Number
+        },
+        template: '<div>{{n + 10}}</div>'
+    };
+
+    let app = new Vue({
+        el: '#app',
+        components: {
+            myComponent: myComponent
+        }
+    });
+
+</script>
+</body>
+</html>
