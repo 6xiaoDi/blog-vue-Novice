@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <me-list v-for="item of items" :key="item.id" :data="item"></me-list>
+</div>
+
+<script src="./js/vue.js"></script>
+
+<script>
+
+    let meList = Vue.component('me-list', {
+        props: ['data'],
+        template: `
+            <div>
+                <span>{{data.name}}</span>
+                <button>-</button>
+                <span>{{data.quantity}}</span>
+                <button>+</button>
+            </div>
+        `
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // quantity 商品初始化的数量
+            items: [
+                {id: 1, name: 'iphonex', quantity: 1},
+                {id: 2, name: 'imac', quantity: 1},
+                {id: 3, name: 'ipad', quantity: 1}
+            ]
+        }
+    });
+
+
+</script>
+</body>
+</html>
