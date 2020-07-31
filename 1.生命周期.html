@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    <me-component :t="title"></me-component>
+    <button @click="show=!show">隐藏</button>
+    <me-component :t="title" v-if="show"></me-component>
 </div>
 
 <script src="./js/vue.js"></script>
