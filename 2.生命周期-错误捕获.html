@@ -9,12 +9,13 @@
 <div id="app">
     <h1>{{title}}</h1>
     <hr>
-    <template v-if="hasError">
-        <h4>有错误发生了</h4>
-    </template>
-    <template v-else>
-        <me-component v-if="show" :t="title"></me-component>
-    </template>
+    <me-component v-if="show" :t="title"></me-component>
+<!--    <template v-if="hasError">-->
+<!--        <h4>有错误发生了</h4>-->
+<!--    </template>-->
+<!--    <template v-else>-->
+<!--        <me-component v-if="show" :t="title"></me-component>-->
+<!--    </template>-->
 </div>
 
 <script src="./js/vue.js"></script>
