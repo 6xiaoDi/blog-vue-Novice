@@ -17,9 +17,7 @@
     <button @click="goto('RecycleBin')" :class="type=='RecycleBin' ? 'current' : ''">垃圾箱</button>
 
     <hr>
-    <in-box v-if="type=='InBox'"></in-box>
-    <post-mail v-if="type=='PostMail'"></post-mail>
-    <recycle-bin v-if="type=='RecycleBin'"></recycle-bin>
+    <component :is="type"></component>
 </div>
 
 <script src="./js/vue.js"></script>
