@@ -11,23 +11,27 @@
             /*动画效果*/
             transition: all .5s;
         }
-        /*移入更改宽*/
-        .box:hover {
-            width: 200px;
-        }
     </style>
 </head>
 <body>
 
 <div id="app">
-    <div class="box"></div>
-
+    <button @click="fn">按钮</button>
+    <div class="box" :style="{width: w}"></div>
 </div>
 
 <script src="./js/vue.js"></script>
 <script>
     let app = new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            w: '100px'
+        },
+        methods: {
+            fn() {
+                this.w = '200px';
+            }
+        }
     });
 </script>
 
