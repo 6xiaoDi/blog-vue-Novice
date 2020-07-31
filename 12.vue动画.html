@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .js_animation_box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: .5s all;
+        }
+        .js_animation_box.end {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="isEnd = !isEnd">vue动画</button>
+    <div :class="['js_animation_box', isEnd ? 'end' : '']"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            isEnd: false
+        }
+    });
+</script>
+</body>
+</html>
