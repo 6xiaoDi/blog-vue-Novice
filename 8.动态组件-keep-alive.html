@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .current {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <button @click="goto('InBox')" :class="type=='InBox' ? 'current' : ''">收邮件</button>
+    <button @click="goto('PostMail')" :class="type=='PostMail' ? 'current' : ''">发邮件</button>
+    <button @click="goto('RecycleBin')" :class="type=='RecycleBin' ? 'current' : ''">垃圾箱</button>
+
+    <hr>
+    <keep-alive>
+        <component :is="type"></component>
+    </keep-alive>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    // 展示当前收件箱
+    const InBox = {
+        data() {
+            return {
+                items: [
+                    '111111',
+                    '22222222222',
+                    'aaaaaaaa',
+                    '3333333'
+                ]
+            }
+        },
+        template: `
+            <div>
+                <ul>
+                    <li v-for="item of items">
+                        <input type="checkbox" />
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
+        `,
+        created() {
+            console.log('InBox:created');
+        },
+        destroyed() {
+            console.log('InBox:destroyed');
+        }
+    };
+    // 展示发邮件的页面
+    const PostMail = {
+        template: `
+                <div>PostMail</div>
+            `,
+        created() {
+            console.log('PostMail:created');
+        },
+        destroyed() {
+            console.log('PostMail:destroyed');
+        }
+    };
+    // 展示当前回收站
+    const RecycleBin = {
+        template: `
+                <div>RecycleBin</div>
+            `,
+        created() {
+            console.log('RecycleBin:created');
+        },
+        destroyed() {
+            console.log('RecycleBin:destroyed');
+        }
+    };
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            type: 'InBox'
+        },
+        components: {
+            InBox,
+            PostMail,
+            RecycleBin
+        },
+        methods: {
+            goto(type) {
+                this.type = type;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
