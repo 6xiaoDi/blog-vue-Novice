@@ -12,14 +12,14 @@
 <body>
 
 <div id="app">
-    <button :class="">收邮件</button>
-    <button :class="">发邮件</button>
-    <button :class="">垃圾箱</button>
+    <button @click="goto('InBox')" :class="type=='InBox' ? 'current' : ''">收邮件</button>
+    <button @click="goto('PostMail')" :class="type=='PostMail' ? 'current' : ''">发邮件</button>
+    <button @click="goto('RecycleBin')" :class="type=='RecycleBin' ? 'current' : ''">垃圾箱</button>
 
     <hr>
-    <in-box ></in-box>
-    <post-mail ></post-mail>
-    <recycle-bin ></recycle-bin>
+    <in-box v-if="type=='InBox'"></in-box>
+    <post-mail v-if="type=='PostMail'"></post-mail>
+    <recycle-bin v-if="type=='RecycleBin'"></recycle-bin>
 </div>
 
 <script src="./js/vue.js"></script>
@@ -82,11 +82,17 @@
     let app = new Vue({
         el: '#app',
         data: {
+            type: 'InBox'
         },
         components: {
             InBox,
             PostMail,
             RecycleBin
+        },
+        methods: {
+            goto(type) {
+                this.type = type;
+            }
         }
     });
 
