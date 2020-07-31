@@ -10,12 +10,10 @@
     <button @click="fn">按钮</button>
 </div>
 <script src="./js/vue.js"></script>
+<script src="./js/me.js"></script>
 <script>
 
-    Vue.prototype.getName = function() {
-        console.log('abcd');
-    };
-
+    Vue.use( me );
 
     let app = new Vue({
         el: '#app',
