@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .js_animation_box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<button id="js_animation_btn">原生动画</button>
+<div id="js_animation_box" class="js_animation_box"></div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    // jq
+    $('#js_animation_btn').on('click', function() {
+        $('#js_animation_box').animate({
+            width: 200,
+            height: 200
+        }, .5);
+    });
+</script>
+</body>
+</html>
