@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            /*修改box样式就会触发该动画*/
+            transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <button @click="fn">按钮</button>
+    <button @click="isShow=!isShow">{{isShow}}</button>
+    <transition>
+        <div class="box" v-if="isShow"></div>
+    </transition>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            isShow: true,
+            w: '100px'
+        },
+        methods: {
+            fn() {
+                this.$refs.box1.style.width = '200px';
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
