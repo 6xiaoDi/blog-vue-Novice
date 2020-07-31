@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="show=!show">隐藏</button>
+    <me-component v-if="show" :t="title"></me-component>
+
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    const meComponent = {
+        props: ['t'],
+        template: `
+            <div>
+                <h1>meComponent - {{t}}</h1>
+            </div>
+        `,
+
+        created() {
+            setInterval(() => {
+                console.log(1);
+            }, 100);
+        },
+
+        beforeDestroy() {
+            console.log('meComponent:beforeDestroy');
+        },
+
+        destroyed() {
+            console.log('meComponent:destroyed');
+        }
+    };
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Github',
+            show: true,
+        },
+        components: {
+            meComponent
+        }
+    });
+
+</script>
+
+</body>
+</html>
