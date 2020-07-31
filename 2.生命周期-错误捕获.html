@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <hr>
+    <template v-if="hasError">
+        <h4>有错误发生了</h4>
+    </template>
+    <template v-else>
+        <me-component v-if="show" :t="title"></me-component>
+    </template>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+
+    const meComponent = {
+        props: ['t'],
+        template: `
+            <div>
+                <!--                    <h1>meComponent - {{t}}</h1>-->
+                <h1>meComponent - {{t.a.b}}</h1>
+            </div>
+        `,
+
+        beforeCreate() {
+            console.log('meComponent:beforeCreate');
+        },
+
+        // 构建完成以后
+        created() {
+            console.log('meComponent:created');
+        },
+
+        // 组件挂载之前
+        beforeMount() {
+            console.log('meComponent:beforeMount');
+            console.log('el', this.$el);
+        },
+
+        // 组件挂载完成以后
+        mounted() {
+            console.log('meComponent:mounted');
+        },
+
+        // 组件更新
+        beforeUpdate() {
+            console.log('meComponent:beforeUpdate');
+        },
+
+        // 组件更新后
+        updated() {
+            console.log('meComponent:updated');
+        },
+
+        beforeDestroy() {
+            console.log('meComponent:beforeDestroy');
+        },
+
+        destroyed() {
+            console.log('meComponent:destroyed');
+        }
+    };
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Github',
+            show: true,
+            hasError: false
+        },
+
+        components: {
+            meComponent
+        },
+
+        beforeCreate() {
+            console.log('beforeCreate');
+            console.log('data', this.$data);
+            console.log('el', this.$el);
+        },
+
+        // 构建完成以后
+        created() {
+            console.log('created');
+            console.log('data', this.$data);
+            console.log('el', this.$el);
+        },
+
+        // 组件挂载之前
+        beforeMount() {
+            console.log('beforeMount');
+            console.log('el', this.$el);
+        },
+
+        // 组件挂载完成以后
+        mounted() {
+            console.log('mounted');
+            console.log('el', this.$el);
+        },
+
+        // 组件更新
+        beforeUpdate() {
+            console.log('beforeUpdate');
+        },
+
+        // 组件更新后
+        updated() {
+            console.log('updated');
+        },
+
+        beforeDestroy() {
+            console.log('beforeDestroy');
+        },
+
+        destroyed() {
+            console.log('destroyed');
+        },
+
+        //err：错误  vm：虚拟dom（组件实例）  info：信息
+        errorCaptured(err, vm, info) {
+            console.log('errorCaptured');
+            console.log(err, vm, info);
+            this.hasError = true;
+            return false;
+        }
+    });
+
+</script>
+
+</body>
+</html>
