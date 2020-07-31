@@ -51,6 +51,12 @@
         },
         destroyed() {
             console.log('InBox:destroyed');
+        },
+        activated() {
+            console.log('activated')
+        },
+        deactivated() {
+            console.log('deactivated')
         }
     };
     // 展示发邮件的页面
@@ -63,6 +69,12 @@
         },
         destroyed() {
             console.log('PostMail:destroyed');
+        },
+        activated() {
+            console.log('PostMail:activated')
+        },
+        deactivated() {
+            console.log('PostMail:deactivated')
         }
     };
     // 展示当前回收站
@@ -75,6 +87,12 @@
         },
         destroyed() {
             console.log('RecycleBin:destroyed');
+        },
+        activated() {
+            console.log('RecycleBin:activated')
+        },
+        deactivated() {
+            console.log('RecycleBin:deactivated')
         }
     };
 
