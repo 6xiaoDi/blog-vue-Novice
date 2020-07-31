@@ -79,8 +79,9 @@
         // 构建完成以后
         created() {
             console.log('created');
+            console.log('data', this.$data);
+            console.log('el', this.$el);
         },
-
         // 组件挂载之前
         beforeMount() {
             console.log('beforeMount');
