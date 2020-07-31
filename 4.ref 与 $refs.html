@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>{{title}}</h1>
+    <button @click="getBoxHeight">获取 box 的高度</button>
+    <button @click="getmeComponent">获取自定义组件实例及内部方法</button>
+    <hr>
+    <div ref="box">
+        这是内容<br>这是内容<br>这是内容<br>这是内容<br>这是内容<br>
+    </div>
+    <hr>
+    <me-component ref="me" :t="title"></me-component>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+    const meComponent = {
+        props: ['t'],
+        data() {
+            return {
+                isShow: true
+            }
+        },
+        template: `
+                <div v-if="isShow">
+                    <h1>meComponent - {{t}}</h1>
+                </div>
+            `,
+        methods: {
+            hide() {
+                this.isShow = false;
+            }
+        }
+    }
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            title: 'csdn'
+        },
+        components: {
+            'me-component': meComponent
+        },
+        mounted() {
+            console.log(this.$refs.me);
+        },
+        methods: {
+            getBoxHeight() {
+                console.log( this.$refs.box.clientHeight );
+            },
+            getmeComponent() {
+                this.$refs.me.hide();
+            }
+        }
+    });
+</script>
+</body>
+</html>
