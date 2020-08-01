@@ -14,7 +14,7 @@
 </script>
 
 
-<style>
+<style  scoped>
   p {
     color: red;
   }
