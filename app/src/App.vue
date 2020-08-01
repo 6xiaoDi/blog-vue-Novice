@@ -1,15 +1,11 @@
 <template>
   <div id="app">
     <h1>我的主页</h1>
-    <div id="nav">
-      <router-link exact tag="button" to="/">
-        <span> Home </span>
-      </router-link>
-      <span> | </span>
-      <router-link tag="button" to="/about">
-        <span> About </span>
-      </router-link>
-    </div>
+    <ul id="nav">
+      <router-link tag="li" to="/">Home</router-link>
+      <li> | </li>
+      <router-link tag="li" to="/about">About</router-link>
+    </ul>
     <hr />
     <router-view></router-view>
   </div>
