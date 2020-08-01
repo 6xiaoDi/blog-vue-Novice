@@ -2,6 +2,7 @@
   <div class="hello">
     <p>这里是hello - {{msg}}</p>
     <img src="https://csdnimg.cn/cdn/content-toolbar/dragonBoat-white.gif" alt="">
+    <img src="@/assets/logo.png" alt="">
   </div>
 </template>
 
