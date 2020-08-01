@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <p>这里是hello - {{msg}}</p>
+    <img src="../assets/logo.png" alt="">
   </div>
 </template>
 
