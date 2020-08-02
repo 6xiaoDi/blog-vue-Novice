@@ -18,7 +18,7 @@
 
         async created() {
             let rs= await axios({
-                url:'/items'
+                url:'/api/items'
             });
 
             this.items = rs.data;
