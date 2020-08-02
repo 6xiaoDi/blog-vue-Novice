@@ -12,7 +12,8 @@
                 <span>
                     <router-link :to="{name: 'item', params: {id: item.id}}">{{item.name}}</router-link>
                 </span>
-                <span>{{item.price}}</span>
+<!--                <span>{{item.price|RMB}}</span>-->
+                <span>{{item.price|RMB('$')}}</span>
                 <span>
                     <button>添加到购物车</button>
                 </span>
@@ -23,6 +24,7 @@
 
 <script>
     import * as apis from '@/apis'
+    import {RMB} from "@/filters/RMB";
 
     export default {
         name: "Home",
@@ -37,6 +39,11 @@
             let rs = await apis.getItems();
 
             this.items = rs.data;
+        },
+
+        // 局部过滤器引入，挂载到filters
+        filters: {
+            RMB
         }
     }
 </script>
