@@ -12,14 +12,17 @@ let router = new VueRouter({
     routes: [
         {
             path: '/',
+            name: 'home',
             component: Home
         },
         {
             path: '/about',
+            name: 'about',
             component: About
         },
         {
             path: '/view/:id',
+            name: 'view',
             component: Detail
         }
     ]

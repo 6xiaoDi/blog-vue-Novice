@@ -14,7 +14,7 @@
             </li>
             <li v-for="item of items" :key="item.id">
                 <span>
-                    <router-link :to='"/view/" + item.id'>{{item.name}}</router-link>
+                    <router-link :to="{name: 'view', params: {id: item.id}}">{{item.name}}</router-link>
                 </span>
                 <span>{{item.price|RMB}}</span>
                 <span>
@@ -59,7 +59,12 @@
 
         methods: {
             changeSort({target: {value}}) {
-                this.$router.push('/?sort=' + value)
+                this.$router.push({
+                    name: 'home',
+                    query: {
+                        sort: value
+                    }
+                });
             }
         }
     }
