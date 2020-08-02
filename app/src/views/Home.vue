@@ -40,7 +40,8 @@
         },
 
         async created() {
-            let rs = await apis.getItems();
+            this.sort = this.$route.query.sort || 'desc';
+            let rs = await apis.getItems(this.sort);
 
             this.items = rs.data;
         },
@@ -51,9 +52,11 @@
         },
 
         watch: {
-            $route(to, from) {
-                console.log(from);
-                console.log(to);
+            async $route(to, from) {
+                this.sort = this.$route.query.sort || 'desc';
+                let rs = await apis.getItems(this.sort);
+
+                this.items = rs.data;
             }
         },
 

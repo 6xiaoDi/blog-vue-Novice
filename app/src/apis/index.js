@@ -1,9 +1,11 @@
 import axios from 'axios'
 import URLS from './URLS'
 
-export async function getItems() {
+// export async function getItems() {
+export async function getItems(sort) {
     let rs = await axios({
-        url: URLS.ITEMS
+        url: URLS.ITEMS + '?sort=' + sort
+        // url: URLS.ITEMS
     });
 
     return rs;
