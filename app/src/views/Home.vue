@@ -50,12 +50,12 @@
             RMB
         },
 
-        // watch: {
-        //     // 监听sort数据变化
-        //     sort() {
-        //         console.log('......')
-        //     }
-        // }
+        watch: {
+            $route(to, from) {
+                console.log(from);
+                console.log(to);
+            }
+        },
 
         methods: {
             changeSort({target: {value}}) {
