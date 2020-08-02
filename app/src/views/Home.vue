@@ -1,7 +1,11 @@
 <template>
     <div>
-        <!--        Home-->
         <h2>商品列表</h2>
+        <select v-model="sort">
+            <option value="desc">从高到低</option>
+            <option value="asc">从低到高</option>
+        </select>
+
         <ul class="item-list">
             <li class="head">
                 <span>名称</span>
@@ -12,8 +16,7 @@
                 <span>
                     <router-link :to='"/view/" + item.id'>{{item.name}}</router-link>
                 </span>
-<!--                <span>{{item.price|RMB}}</span>-->
-                <span>{{item.price|RMB('$')}}</span>
+                <span>{{item.price|RMB}}</span>
                 <span>
                     <button>添加到购物车</button>
                 </span>
@@ -31,6 +34,7 @@
 
         data() {
             return {
+                sort: 'desc',
                 items: []
             }
         },
@@ -44,6 +48,13 @@
         // 局部过滤器引入，挂载到filters
         filters: {
             RMB
+        },
+
+        watch: {
+            // 监听sort数据变化
+            sort() {
+                console.log('......')
+            }
         }
     }
 </script>
