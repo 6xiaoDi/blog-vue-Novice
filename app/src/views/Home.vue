@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>商品列表</h2>
-        <select v-model="sort">
+        <select @change="changeSort" :value="sort">
             <option value="desc">从高到低</option>
             <option value="asc">从低到高</option>
         </select>
@@ -50,10 +50,16 @@
             RMB
         },
 
-        watch: {
-            // 监听sort数据变化
-            sort() {
-                console.log('......')
+        // watch: {
+        //     // 监听sort数据变化
+        //     sort() {
+        //         console.log('......')
+        //     }
+        // }
+
+        methods: {
+            changeSort({target: {value}}) {
+                this.$router.push('/?sort=' + value)
             }
         }
     }
