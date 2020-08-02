@@ -18,7 +18,7 @@
 
         async created() {
             let rs= await axios({
-                url:'http://localhost:7777/items'
+                url:'/items'
             });
 
             this.items = rs.data;
