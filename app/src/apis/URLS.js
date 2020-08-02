@@ -1,3 +1,4 @@
 export default {
-    'ITEMS': '/api/items'
+    'ITEMS': '/api/items',
+    'ITEM': '/api/item'
 }
