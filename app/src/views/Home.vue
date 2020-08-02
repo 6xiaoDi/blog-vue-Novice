@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import * as apis from '@/apis'
 
     export default {
         name: "Home",
@@ -17,13 +17,9 @@
         },
 
         async created() {
-            let rs= await axios({
-                url:'/api/items'
-            });
+            let rs = await apis.getItems();
 
             this.items = rs.data;
-
-            console.log(this.items);
         }
     }
 </script>
