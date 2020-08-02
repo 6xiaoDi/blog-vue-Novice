@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from '@/views/Home';
 import About from '@/views/About';
+import Detail from '@/views/Detail';
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,10 @@ let router = new VueRouter({
         {
             path: '/about',
             component: About
+        },
+        {
+            path: '/view/:id',
+            component: Detail
         }
     ]
 });

@@ -10,7 +10,7 @@
             </li>
             <li v-for="item of items" :key="item.id">
                 <span>
-                    <router-link :to="{name: 'item', params: {id: item.id}}">{{item.name}}</router-link>
+                    <router-link :to='"/view/" + item.id'>{{item.name}}</router-link>
                 </span>
 <!--                <span>{{item.price|RMB}}</span>-->
                 <span>{{item.price|RMB('$')}}</span>
