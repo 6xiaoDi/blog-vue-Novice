@@ -40,10 +40,7 @@
         },
 
         async created() {
-            this.sort = this.$route.query.sort || 'desc';
-            let rs = await apis.getItems(this.sort);
-
-            this.items = rs.data;
+            this.getItems();
         },
 
         // 局部过滤器引入，挂载到filters
@@ -53,10 +50,7 @@
 
         watch: {
             async $route(to, from) {
-                this.sort = this.$route.query.sort || 'desc';
-                let rs = await apis.getItems(this.sort);
-
-                this.items = rs.data;
+                this.getItems();
             }
         },
 
@@ -68,6 +62,13 @@
                         sort: value
                     }
                 });
+            },
+
+            async getItems() {
+                this.sort = this.$route.query.sort || 'desc';
+                let rs = await apis.getItems(this.sort);
+
+                this.items = rs.data;
             }
         }
     }
