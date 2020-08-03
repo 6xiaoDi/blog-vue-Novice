@@ -33,22 +33,26 @@ let router = new VueRouter({
         {
             path: '/user',
             name: 'user',
-            component: User
+            component: User,
+            children: [
+                {
+                    // 上一层的path拼到这一层的path，类似层层继承关系
+                    path: 'profile',
+                    name: 'userProfile',
+                    component: Profile
+                },
+                {
+                    // 上一层的path拼到这一层的path，类似层层继承关系
+                    path: 'cart',
+                    name: 'userCart',
+                    component: Cart
+                }
+            ]
         },
         {
             path: '/login',
             name: 'login',
             component: Login
-        },
-        {
-            path: '/user/profile',
-            name: 'userProfile',
-            component: Profile
-        },
-        {
-            path: '/user/cart',
-            name: 'userCart',
-            component: Cart
         }
     ]
 });
