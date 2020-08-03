@@ -37,7 +37,8 @@ let router = new VueRouter({
             children: [
                 {
                     // 上一层的path拼到这一层的path，类似层层继承关系
-                    path: 'profile',
+                    // ''就代表默认路径
+                    path: '',
                     name: 'userProfile',
                     component: Profile
                 },
