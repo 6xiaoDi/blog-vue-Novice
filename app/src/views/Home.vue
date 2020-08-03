@@ -60,6 +60,11 @@
             });
         },
 
+        beforeRouteUpdate(to, from, next) {
+            console.log('...', this.$route.query.sort)
+            next();
+        },
+
         methods: {
             changeSort({target: {value}}) {
                 this.$router.push({
