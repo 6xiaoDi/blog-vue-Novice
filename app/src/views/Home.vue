@@ -54,6 +54,9 @@
             }
         },
 
+        beforeRouteEnter(to, from, next) {
+        },
+
         methods: {
             changeSort({target: {value}}) {
                 this.$router.push({
