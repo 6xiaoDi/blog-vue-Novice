@@ -1,7 +1,7 @@
 <template>
 
     <div class="pages">
-        <span v-for="i of pages" :class="{current: i === page}">
+        <span v-for="i of pages" :class="{current: i === page}" @click="changePage(i)">
             {{i}}
         </span>
     </div>
@@ -25,6 +25,12 @@
 
         data() {
             return {};
+        },
+
+        methods: {
+            changePage(v) {
+                console.log(v);
+            }
         }
     }
 </script>
