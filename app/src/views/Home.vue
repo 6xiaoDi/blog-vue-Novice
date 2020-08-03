@@ -24,6 +24,9 @@
                 </span>
             </li>
         </ul>
+        <div class="tip" :style="{left: tip.left, top: tip.top}" v-show="tip.isShow">
+            ddddddddddddddddddddddddddddddd
+        </div>
     </div>
 </template>
 
@@ -40,7 +43,12 @@
                 sort: 'desc',
                 items: [],
                 page:1,
-                pages:10
+                pages:10,
+                tip: {
+                    left: 0,
+                    top: 0,
+                    isShow: true
+                }
             }
         },
 
@@ -110,5 +118,13 @@
     }
     .item-list li span {
         min-width: 200px;
+    }
+    .tip {
+        position: fixed;
+        left: 0;
+        top: 0;
+        border: 1px solid #000;
+        background: #fff;
+        padding: 10px;
     }
 </style>
