@@ -55,7 +55,7 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            next();
+            next(false);
         },
 
         methods: {
