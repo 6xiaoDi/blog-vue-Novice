@@ -29,7 +29,13 @@
 
         methods: {
             changePage(v) {
-                console.log(v);
+                console.log(this.$router);
+                this.$router.push({
+                    name: 'home',
+                    query: {
+                        page: v
+                    }
+                });
             }
         }
     }
