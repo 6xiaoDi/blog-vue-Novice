@@ -8,6 +8,8 @@
       <span> | </span>
       <router-link to="/user">User</router-link>
       <span> | </span>
+      <router-link to="/book-choose">小说</router-link>
+      <span> | </span>
       <router-link to="/login">Login</router-link>
     </div>
     <hr />

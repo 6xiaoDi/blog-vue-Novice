@@ -8,6 +8,9 @@ import User from '@/views/User';
 import Login from '@/views/Login';
 import Profile from '@/views/User/Profile'
 import Cart from '@/views/User/Cart'
+import BookChoose from '@/views/BookChoose'
+import BookBoy from '@/views/Book/BookBoy'
+import BookGirl from '@/views/Book/BookGirl'
 
 
 Vue.use(VueRouter);
@@ -54,7 +57,22 @@ let router = new VueRouter({
             path: '/login',
             name: 'login',
             component: Login
-        }
+        },
+        {
+            path: '/book-choose',
+            name: 'book-choose',
+            component: BookChoose
+        },
+        {
+            path: '/book-boy',
+            name: 'book-boy',
+            component: BookBoy
+        },
+        {
+            path: '/book-girl',
+            name: 'book-girl',
+            component: BookGirl
+        },
     ]
 });
 
