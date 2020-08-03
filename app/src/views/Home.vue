@@ -6,6 +6,8 @@
             <option value="asc">从低到高</option>
         </select>
 
+        <Page></Page>
+
         <ul class="item-list">
             <li class="head">
                 <span>名称</span>
@@ -28,6 +30,7 @@
 <script>
     import * as apis from '@/apis'
     import {RMB} from "@/filters/RMB";
+    import Page from "@/components/Page"
 
     export default {
         name: "Home",
@@ -39,18 +42,19 @@
             }
         },
 
-        async created() {
-            this.getItems();
-        },
-
         // 局部过滤器引入，挂载到filters
         filters: {
             RMB
         },
 
+        components:{
+            Page
+        },
+
         beforeRouteEnter(to, from, next) {
             next(function(vm) {
-                console.log(vm)
+                console.log(vm);
+                vm.getItems();
             });
         },
 
