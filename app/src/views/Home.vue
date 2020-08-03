@@ -55,7 +55,9 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            next(false);
+            next({
+                name:'about'
+            });
         },
 
         methods: {
