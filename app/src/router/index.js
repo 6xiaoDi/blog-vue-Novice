@@ -37,6 +37,7 @@ let router = new VueRouter({
             path: '/user',
             name: 'user',
             component: User,
+            alias: '/member',
             children: [
                 {
                     // 上一层的path拼到这一层的path，类似层层继承关系
@@ -98,7 +99,6 @@ router.beforeEach((to, from, next) => {
     } else {
         next();
     }
-
 });
 
 export default router;
