@@ -1,18 +1,31 @@
 <template>
 
     <div class="pages">
-        <span class="current">1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
+        <span v-for="i of pages" :class="{current: i === page}">
+            {{i}}
+        </span>
     </div>
 
 </template>
 
 <script>
     export default {
-        name: "Page"
+        name: "Page",
+
+        props: {
+            page: {
+                type: Number,
+                default: 1
+            },
+            pages: {
+                type: Number,
+                required: true // 必须传参
+            }
+        },
+
+        data() {
+            return {};
+        }
     }
 </script>
 

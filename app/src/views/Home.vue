@@ -6,7 +6,7 @@
             <option value="asc">从低到高</option>
         </select>
 
-        <Page></Page>
+        <Page :page="page" :pages="pages"></Page>
 
         <ul class="item-list">
             <li class="head">
@@ -38,7 +38,9 @@
         data() {
             return {
                 sort: 'desc',
-                items: []
+                items: [],
+                page:1,
+                pages:10
             }
         },
 
