@@ -5,6 +5,10 @@
             <router-link exact tag="li" :to="{name: 'userProfile'}">基本信息</router-link>
             <router-link tag="li" :to="{name: 'userCart'}">我的购物车</router-link>
         </ul>
+
+        <div class="right">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
