@@ -6,7 +6,11 @@
 
 <script>
     export default {
-        name: "BookBoy"
+        name: "BookBoy",
+
+        created() {
+            localStorage.setItem('book-type', 'book-boy');
+        }
     }
 </script>
 

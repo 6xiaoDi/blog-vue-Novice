@@ -61,7 +61,8 @@ let router = new VueRouter({
         {
             path: '/book-choose',
             name: 'book-choose',
-            component: BookChoose
+            component: BookChoose,
+            redirect: { name: 'book-body' }
         },
         {
             path: '/book-boy',
