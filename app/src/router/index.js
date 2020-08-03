@@ -61,8 +61,7 @@ let router = new VueRouter({
         {
             path: '/book-choose',
             name: 'book-choose',
-            component: BookChoose,
-            redirect: { name: 'book-body' }
+            component: BookChoose
         },
         {
             path: '/book-boy',
@@ -74,6 +73,16 @@ let router = new VueRouter({
             name: 'book-girl',
             component: BookGirl
         },
+        {
+            // 没有组件，唯一的作用就是重定向用的
+            path: '/book',
+            name: 'book',
+            // 指定回调函数，to指定目的地
+            redirect: to => {
+                let type = localStorage.getItem('book-type')
+                return { name: type || 'book-choose' }
+            }
+        }
     ]
 });
 
