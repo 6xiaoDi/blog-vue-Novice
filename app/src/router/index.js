@@ -4,6 +4,9 @@ import VueRouter from 'vue-router';
 import Home from '@/views/Home';
 import About from '@/views/About';
 import Detail from '@/views/Detail';
+import User from '@/views/User';
+import Login from '@/views/Login';
+
 
 Vue.use(VueRouter);
 
@@ -24,6 +27,16 @@ let router = new VueRouter({
             path: '/view/:id',
             name: 'view',
             component: Detail
+        },
+        {
+            path: '/user',
+            name: 'user',
+            component: User
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
         }
     ]
 });

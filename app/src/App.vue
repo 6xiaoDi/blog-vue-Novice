@@ -5,6 +5,10 @@
       <router-link exact to="/">Home</router-link>
       <span> | </span>
       <router-link  to="/about">About</router-link>
+      <span> | </span>
+      <router-link to="/user">User</router-link>
+      <span> | </span>
+      <router-link to="/login">Login</router-link>
     </div>
     <hr />
     <router-view></router-view>
