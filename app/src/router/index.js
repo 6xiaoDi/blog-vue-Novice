@@ -42,13 +42,13 @@ let router = new VueRouter({
 });
 
 let user = {
-    id: 0
+    id: 1
 }
 
 router.beforeEach((to, from, next) => {
     // next();
     // id为1代表登录，否则为0代表没登录
-    if (user.id === 0) {
+    if (user.id === 0 && to.name === 'user') {
         next({name: 'login'});
     } else {
         next();
