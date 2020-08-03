@@ -56,8 +56,8 @@
 
         beforeRouteUpdate(to, from, next) {
             console.log('...', this.$route.query.sort)
-            this.getItems();
             next();
+            this.getItems();
         },
 
         methods: {
