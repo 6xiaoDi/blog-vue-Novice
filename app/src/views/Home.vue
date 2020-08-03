@@ -55,8 +55,8 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            next({
-                name:'about'
+            next(function(vm) {
+                console.log(vm)
             });
         },
 
