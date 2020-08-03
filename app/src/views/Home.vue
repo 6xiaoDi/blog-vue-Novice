@@ -77,7 +77,7 @@
             },
 
             async getItems() {
-                console.log("...methods-getItems");
+                this.page = Number(this.$route.query.page) || 1;
                 this.sort = this.$route.query.sort || 'desc';
                 let rs = await apis.getItems(this.sort);
 
