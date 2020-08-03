@@ -48,12 +48,6 @@
             RMB
         },
 
-        watch: {
-            async $route(to, from) {
-                this.getItems();
-            }
-        },
-
         beforeRouteEnter(to, from, next) {
             next(function(vm) {
                 console.log(vm)
@@ -62,6 +56,7 @@
 
         beforeRouteUpdate(to, from, next) {
             console.log('...', this.$route.query.sort)
+            this.getItems();
             next();
         },
 
@@ -76,6 +71,7 @@
             },
 
             async getItems() {
+                console.log("...methods-getItems");
                 this.sort = this.$route.query.sort || 'desc';
                 let rs = await apis.getItems(this.sort);
 
