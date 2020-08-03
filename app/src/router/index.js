@@ -6,6 +6,8 @@ import About from '@/views/About';
 import Detail from '@/views/Detail';
 import User from '@/views/User';
 import Login from '@/views/Login';
+import Profile from '@/views/User/Profile'
+import Cart from '@/views/User/Cart'
 
 
 Vue.use(VueRouter);
@@ -37,6 +39,16 @@ let router = new VueRouter({
             path: '/login',
             name: 'login',
             component: Login
+        },
+        {
+            path: '/user/profile',
+            name: 'userProfile',
+            component: Profile
+        },
+        {
+            path: '/user/cart',
+            name: 'userCart',
+            component: Cart
         }
     ]
 });
