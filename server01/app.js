@@ -34,9 +34,9 @@ router.get('/item/:id', async ctx => {
     let id = Number(ctx.params.id);
     let item = datas.items.find(item => item.id === id);
 
-    // await new Promise(resolve => {
-    //     setTimeout(_=>resolve(), 2000);
-    // });
+    await new Promise(resolve => {
+        setTimeout(_=>resolve(), 3000);
+    });
 
     if (!item) {
         ctx.throw(404, '没有该商品信息');
