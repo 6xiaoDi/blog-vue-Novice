@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 import Home from '@/views/Home';
 import About from '@/views/About';
 import Detail from '@/views/Detail';
@@ -99,6 +102,7 @@ let user = {
 }
 
 router.beforeEach((to, from, next) => {
+    NProgress.start();
     // next();
     // id为1代表登录，否则为0代表没登录
     if (user.id === 0 && to.name === 'user') {
@@ -107,5 +111,10 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
+
+router.afterEach((to, from, next) => {
+    NProgress.done();
+})
+
 
 export default router;
