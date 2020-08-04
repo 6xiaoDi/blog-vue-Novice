@@ -32,7 +32,13 @@ let router = new VueRouter({
             path: '/view/:id',
             name: 'view',
             component: Detail,
-            props: {id:3, a:1}
+            props(r) {
+                // r $route
+                return {
+                    id: r.params.id,
+                    a: 1
+                }
+            }
         },
         {
             path: '/user',
