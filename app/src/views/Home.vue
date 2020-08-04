@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="tip" :style="{left: tip.left, top: tip.top}" v-show="tip.isShow">
-            ddddddddddddddddddddddddddddddd
+            <Detail v-if="tip.isShow"></Detail>
         </div>
     </div>
 </template>
@@ -35,6 +35,7 @@
     import * as apis from '@/apis'
     import {RMB} from "@/filters/RMB";
     import Page from "@/components/Page"
+    import Detail from '@/views/Detail';
 
     export default {
         name: "Home",
@@ -59,7 +60,8 @@
         },
 
         components:{
-            Page
+            Page,
+            Detail
         },
 
         beforeRouteEnter(to, from, next) {
