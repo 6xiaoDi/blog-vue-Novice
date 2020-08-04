@@ -23,7 +23,7 @@
     export default {
         name: "Detail",
 
-        props: ['id'],
+        props: ['id','a'],
 
         data() {
             return {
@@ -36,6 +36,7 @@
         },
 
         async created() {
+            console.log(this);
             let id = this.id;
             let rs = await apis.getItem(id);
 
