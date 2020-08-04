@@ -13,9 +13,6 @@
                 <dt>价格</dt>
                 <dd>{{item.price|RMB}}</dd>
             </template>
-            <template v-else>
-                <h2>加载中……</h2>
-            </template>
         </template>
     </div>
 </template>
@@ -40,20 +37,21 @@
             RMB
         },
 
-        async created() {
-            console.log(this);
-            let id = this.id;
+        async beforeRouteEnter(to, from, next) {
             try {
+                let id = to.params.id;
                 let rs = await apis.getItem(id);
-
-                this.item = rs.data;
+                // this.item = rs.data;
+                next( vm => {
+                    console.log(vm)
+                    vm.item = rs.data;
+                } );
             } catch (e) {
-                this.error = true;
+                // this.error = true;
+                next( vm => {
+                    vm.error = true;
+                } );
             }
-        },
-
-        beforeRouteEnter(to, from, next) {
-
         }
     }
 </script>
