@@ -17,7 +17,7 @@
             <li v-for="item of items" :key="item.id">
                 <span>
                     <router-link :to="{name: 'view', params: {id: item.id}}">{{item.name}}</router-link>
-                    <button @click="showTip">点击查看详情</button>
+                    <button @click="showTip(item.id, $event)">点击查看详情</button>
                 </span>
                 <span>{{item.price|RMB}}</span>
                 <span>
@@ -26,7 +26,7 @@
             </li>
         </ul>
         <div class="tip" :style="{left: tip.left, top: tip.top}" v-show="tip.isShow">
-            <Detail v-if="tip.isShow"></Detail>
+            <Detail v-if="tip.isShow" :id="tip.id"></Detail>
         </div>
     </div>
 </template>
@@ -47,6 +47,7 @@
                 page:1,
                 pages:10,
                 tip: {
+                    id: 0,
                     left: 0,
                     top: 0,
                     isShow: false
@@ -95,11 +96,12 @@
                 this.items = rs.data;
             },
 
-            showTip(e) {
-                console.log(e.target);
+            showTip(id, e) {
+
                 let {left: L, top: T} = e.target.getBoundingClientRect();
 
                 this.tip = {
+                    id,
                     left: L +'px',
                     top: T + e.target.offsetHeight +  'px',
                     isShow: true

@@ -23,6 +23,8 @@
     export default {
         name: "Detail",
 
+        props: ['id'],
+
         data() {
             return {
                 item: null
@@ -34,8 +36,8 @@
         },
 
         async created() {
-            let id = this.$route.params.id;
-
+            // let id = this.$route.params.id;
+            let id = this.id;
             let rs = await apis.getItem(id);
 
             this.item = rs.data;
