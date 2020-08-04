@@ -17,6 +17,7 @@
             <li v-for="item of items" :key="item.id">
                 <span>
                     <router-link :to="{name: 'view', params: {id: item.id}}">{{item.name}}</router-link>
+                    <button @click="showTip">点击查看详情</button>
                 </span>
                 <span>{{item.price|RMB}}</span>
                 <span>
@@ -47,7 +48,7 @@
                 tip: {
                     left: 0,
                     top: 0,
-                    isShow: true
+                    isShow: false
                 }
             }
         },
@@ -90,6 +91,17 @@
                 let rs = await apis.getItems(this.sort);
 
                 this.items = rs.data;
+            },
+
+            showTip(e) {
+                console.log(e.target);
+                let {left: L, top: T} = e.target.getBoundingClientRect();
+
+                this.tip = {
+                    left: L +'px',
+                    top: T + e.target.offsetHeight +  'px',
+                    isShow: true
+                }
             }
         }
     }
