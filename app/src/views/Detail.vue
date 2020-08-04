@@ -36,7 +36,7 @@
         },
 
         async created() {
-            let id = this.$route.params.id || this.id;
+            let id = this.id;
             let rs = await apis.getItem(id);
 
             this.item = rs.data;

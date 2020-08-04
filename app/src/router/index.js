@@ -31,7 +31,8 @@ let router = new VueRouter({
         {
             path: '/view/:id',
             name: 'view',
-            component: Detail
+            component: Detail,
+            props:true
         },
         {
             path: '/user',
