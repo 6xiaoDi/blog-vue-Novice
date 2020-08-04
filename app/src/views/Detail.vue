@@ -50,6 +50,10 @@
             } catch (e) {
                 this.error = true;
             }
+        },
+
+        beforeRouteEnter(to, from, next) {
+
         }
     }
 </script>
