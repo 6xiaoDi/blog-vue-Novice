@@ -40,7 +40,7 @@ let router = new VueRouter({
             path: '/view',
             name: 'view',
             component: Detail,
-            meta: { isToSavedPosition: true}
+            meta: { isToSavedPosition: true, isNav: false }
         }
     ]
 });
