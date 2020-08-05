@@ -2,7 +2,7 @@
     <div>
         <nav>
             <div v-for="nav of navs">
-                <router-link :to="nav.path">{{nav.name}}</router-link>
+                <router-link :to="nav.path">{{nav.meta.navName}}</router-link>
                 <span> | </span>
             </div>
         </nav>
@@ -30,7 +30,7 @@
             // this.navs = this.$router.options.routes;
             this.navs = this.$router.options.routes.filter(route => {
                 // 无meta标签
-                if (route.meta === undefined) {
+                if (route.meta === undefined || route.meta.isNav === undefined) {
                     return true;
                 }
                 // 有meta标签 => 需要显示就显示

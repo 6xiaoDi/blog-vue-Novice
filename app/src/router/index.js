@@ -29,18 +29,20 @@ let router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: { navName: '首页' }
         },
         {
             path: '/about',
             name: 'about',
-            component: About
+            component: About,
+            meta: { navName: '关于我们' }
         },
         {
             path: '/view',
             name: 'view',
             component: Detail,
-            meta: { isToSavedPosition: true, isNav: false }
+            meta: { isToSavedPosition: true, isNav: false, navName: '视图' }
         }
     ]
 });
