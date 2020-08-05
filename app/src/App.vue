@@ -24,4 +24,13 @@
   .router-link-active {
     color: red;
   }
+
+  #nav {
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,255,0,.3);
+  }
 </style>
