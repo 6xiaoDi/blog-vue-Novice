@@ -14,6 +14,11 @@ let router = new VueRouter({
     scrollBehavior(to, from, savedPosition) {
         console.log(savedPosition);
 
+        if (savedPosition) {
+            // 调用的浏览器的历史记录
+            return savedPosition;
+        }
+
         return {
             x: 0,
             y: 0
