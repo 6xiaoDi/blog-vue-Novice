@@ -14,7 +14,7 @@ let router = new VueRouter({
     scrollBehavior(to, from, savedPosition) {
         console.log(savedPosition);
 
-        if (savedPosition) {
+        if (to.meta.isToSavedPosition && savedPosition) {
             // 调用的浏览器的历史记录
             return savedPosition;
         }
@@ -39,7 +39,8 @@ let router = new VueRouter({
         {
             path: '/view',
             name: 'view',
-            component: Detail
+            component: Detail,
+            meta: { isToSavedPosition: true}
         }
     ]
 });
