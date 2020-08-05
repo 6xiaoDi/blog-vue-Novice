@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '@/views/Home';
-import About from '@/views/About';
-import Detail from '@/views/Detail';
+// import Home from '@/views/Home';
+// import About from '@/views/About';
+// import Detail from '@/views/Detail';
 
+
+const Home = () => import('@/views/Home');
+const About = () => import('@/views/About');
+const Detail = () => import('@/views/Detail');
 
 Vue.use(VueRouter);
 
