@@ -4,18 +4,12 @@
     <div id="nav">
       <router-link exact to="/">Home</router-link>
       <span> | </span>
-      <router-link  to="/about">About</router-link>
+      <router-link to="/about">About</router-link>
       <span> | </span>
-      <router-link to="/user">User</router-link>
-      <span> | </span>
-      <router-link to="/book">小说</router-link>
-      <span> | </span>
-      <router-link to="/login">Login</router-link>
+      <router-link to="/view">Detail</router-link>
     </div>
     <hr />
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -29,16 +23,5 @@
 <style>
   .router-link-active {
     color: red;
-  }
-
-
-  .fade-enter-active {
-    transition: opacity .5s;
-  }
-  .fade-leave-active {
-    transition: none;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
   }
 </style>
